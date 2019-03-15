@@ -73,6 +73,7 @@ public class Renamer {
     }
 
     private void renameAllFilesInDirectory(File directory) {
+        System.out.println("Renaming all files in " + directory.toString());
         String[] jpegFiles = getJpegFiles(directory);
         int counter = 0;
         for (String filename : jpegFiles) {
@@ -132,9 +133,8 @@ public class Renamer {
             System.out.println(args[0] + " is not an existing directory");
             return;
         }
-        watchDirectory(directory);
         new Renamer().renameAllFilesInDirectory(directory);
-
+        watchDirectory(directory);
     }
 
 }

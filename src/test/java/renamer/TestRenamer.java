@@ -37,7 +37,7 @@ public class TestRenamer {
 		File jpegFile = new File(jpegFileURL.toURI());
 		File directory = new File(jpegFile.getParent());
 		String[] jpegFiles = new Renamer().getJpegFiles(directory);
-		assertTrue(jpegFiles.length == 2);
+		assertEquals(2, jpegFiles.length);
 	}
 
 	@Test
@@ -55,10 +55,10 @@ public class TestRenamer {
 		String toMatch = "a010101_010101_abc.jpg";
 		String toMatch2 = "010101010101_abc.jpg";
 		Renamer renamer = new Renamer();
-		assertFalse(renamer.matchFileName(notToMatch));
-		assertFalse(renamer.matchFileName(notToMatch2));
-		assertTrue(renamer.matchFileName(toMatch));
-		assertTrue(renamer.matchFileName(toMatch2));		
+		assertFalse(Renamer.matchFileName(notToMatch));
+		assertFalse(Renamer.matchFileName(notToMatch2));
+		assertTrue(Renamer.matchFileName(toMatch));
+		assertTrue(Renamer.matchFileName(toMatch2));
 	}
 	
 }
